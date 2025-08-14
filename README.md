@@ -21,9 +21,21 @@
 
 ![cmd啟動](https://github.com/user-attachments/assets/7401a6d5-192c-43d3-bee3-1e1989869f60)
 
-把終端機最大化輸入dotnet run並按Enter鍵執行
+把終端機畫面最大化後輸入dotnet run並按Enter鍵執行，有出現圖案代表成功執行可以直接跳到最後一步
 
 ![dotnet run](https://github.com/user-attachments/assets/62d04473-c65c-4946-801e-c0c824d1052b)
+
+如果出現'dotnet'不是內部或外部命令、可執行的程式或批次檔的訊息，代表電腦沒裝過.NETSDK，需要到微軟官網下載，版本只需要8.0以上就可以了https://dotnet.microsoft.com/zh-tw/download
+
+![dotnet sdk install](https://github.com/user-attachments/assets/ad22f389-ccac-4011-a6c4-a499f499d576)
+
+打開剛下載的安裝檔進行安裝完成後，重複剛才打開終端機的步驟，輸入dotnet --version指令後按下Enter，這時應該會出現安裝的版本號碼，若沒出現可能需要重開電腦
+
+![dotnet sdk install](https://github.com/user-attachments/assets/9b448eea-96ad-4fcf-87fd-ce5fcf82a69a)
+
+確認安裝成功後再次輸入dotnet run並按Enter鍵執行
+
+![dotnet sdk install](https://github.com/user-attachments/assets/61348ccc-ec96-4700-94a3-5eed50855523)
 
 執行完後可以在指定路徑找到輸出的檔案
 
