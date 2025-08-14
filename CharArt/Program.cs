@@ -163,7 +163,7 @@ public class CharArt
                 Console.WriteLine(".");
             }
 
-            Console.WriteLine($"檔案輸出成功，路徑: {OUTPUT_FILE_PATH}");
+            Console.WriteLine($"檔案輸出成功，路徑: {Path.GetFullPath (OUTPUT_FILE_PATH)}");
         }
         catch
         {
