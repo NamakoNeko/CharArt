@@ -1,0 +1,5 @@
+OutputPath=
+PerformanceResizeWidth=
+OutputResizeWidth=
+Char=
+GrayScale=
