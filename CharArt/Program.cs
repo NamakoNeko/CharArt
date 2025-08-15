@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Text;
+using System.Threading.Tasks;
 
 public class CharArt
 {
@@ -11,16 +12,17 @@ public class CharArt
     static int performanceResize = 150;
     static int outputResize = 500;
     static int grayScaleLevel = 200;
-    static string Character = "@";
+    static string character = "@";
+    static double delayMilliseconds = 50;
 
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         Initialize();
 
         if (File.Exists(IMAGE_PATH))
         {
             var bitMap = new Bitmap(IMAGE_PATH);
-            Performance(new Bitmap(bitMap, new Size(performanceResize, GetNewHeight(bitMap, performanceResize))));
+            await Performance(new Bitmap(bitMap, new Size(performanceResize, GetNewHeight(bitMap, performanceResize))));
             Output(new Bitmap(bitMap, new Size(outputResize, GetNewHeight(bitMap, outputResize))));
         }
         else
@@ -32,20 +34,29 @@ public class CharArt
         Console.ReadKey();
     }
 
-    public static void Performance(Bitmap reSizeBitMap)
+    public static async Task Performance(Bitmap reSizeBitMap)
     {
+        Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
+
+        var firstCharFinish = false;
+        var picWriteChar = string.Empty;
         for (var height = 0; height < reSizeBitMap.Height; height++)
         {
             for (var width = 0; width < reSizeBitMap.Width; width++)
             {
                 var colorOfPixel = reSizeBitMap.GetPixel(width, height);
                 var grayScale = (colorOfPixel.R + colorOfPixel.G + colorOfPixel.B) / 3;
-                var picWriteChar = grayScale < grayScaleLevel ? Character : " ";
+                picWriteChar = grayScale < grayScaleLevel ? character : " ";
+                firstCharFinish |= grayScale < grayScaleLevel;
 
                 Console.Write(picWriteChar);
                 Console.Write(" ");
             }
 
+            if (firstCharFinish)
+            {
+                await Task.Delay(TimeSpan.FromMilliseconds(delayMilliseconds));
+            }
             Console.WriteLine("");
         }
     }
@@ -80,14 +91,20 @@ public class CharArt
                                         outputResize = outpurRewidth;
                                     }
                                     break;
-                                case "Char":
-                                    Character = configDatas[1];
-                                    break;
                                 case "GrayScale":
-                                    if (int.TryParse(configDatas[1], out var grayScaleLevel))
+                                    if (int.TryParse(configDatas[1], out var _grayScaleLevel))
                                     {
-                                        CharArt.grayScaleLevel = grayScaleLevel;
+                                        grayScaleLevel = _grayScaleLevel;
                                     }
+                                    break;
+                                case "DelayMilliseconds":
+                                    if (double.TryParse(configDatas[1], out var _delayMilliseconds))
+                                    {
+                                        delayMilliseconds = _delayMilliseconds;
+                                    }
+                                    break;
+                                case "Char":
+                                    character = configDatas[1];
                                     break;
                             }
                         }
@@ -147,7 +164,7 @@ public class CharArt
                 {
                     var colorOfPixel = resizeBitmap.GetPixel(width, height);
                     var grayScale = (colorOfPixel.R + colorOfPixel.G + colorOfPixel.B) / 3;
-                    var pixelWriteChar = grayScale < grayScaleLevel ? Character : " ";
+                    var pixelWriteChar = grayScale < grayScaleLevel ? character : " ";
 
                     stringBuilder.Append(pixelWriteChar);
                     stringBuilder.Append(" ");

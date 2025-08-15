@@ -3,3 +3,4 @@ PerformanceResizeWidth=
 OutputResizeWidth=
 Char=
 GrayScale=
+DelayMilliseconds=
