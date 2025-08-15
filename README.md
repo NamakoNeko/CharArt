@@ -1,7 +1,9 @@
 # CharArt
-這是一個將圖片轉成文字表現的小工具以下是使用方式
+這是一個將圖片轉成文字表現的小工具，使用後的效果會像這樣，圖片來源https://x.com/meiyaya0815
 
-點擊綠色按鈕
+![點擊綠色按鈕下載](https://github.com/user-attachments/assets/73160296-c4be-4c21-a67a-3d20eda51c03)
+
+接下來是使用方式，收先點擊綠色按鈕
 
 ![點擊綠色按鈕下載](https://github.com/user-attachments/assets/7ab4bd4a-7b23-43db-aaf1-245631a30a51)
 
