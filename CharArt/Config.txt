@@ -1,6 +1,6 @@
 OutputPath=
-PerformanceResizeWidth=
+PreviewResizeWidth=
 OutputResizeWidth=
-Char=
-GrayScale=
+GrayScaleLevel=
 DelayMilliseconds=
+ShowPreview=

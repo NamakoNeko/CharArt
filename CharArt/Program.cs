@@ -9,11 +9,12 @@ public class CharArt
     static readonly int DOT_LOOP_LIMIT = 10;
     static string IMAGE_PATH = string.Empty;
     static string OUTPUT_FILE_PATH = string.Empty;
-    static int performanceResize = 150;
+    static int previewResize = 150;
     static int outputResize = 500;
     static int grayScaleLevel = 200;
     static string character = "@";
     static double delayMilliseconds = 50;
+    static bool showPreview = true;
 
     public static async Task Main(string[] args)
     {
@@ -22,7 +23,11 @@ public class CharArt
         if (File.Exists(IMAGE_PATH))
         {
             var bitMap = new Bitmap(IMAGE_PATH);
-            await Performance(new Bitmap(bitMap, new Size(performanceResize, GetNewHeight(bitMap, performanceResize))));
+
+            if (showPreview)
+            {
+                await Performance(new Bitmap(bitMap, new Size(previewResize, GetNewHeight(bitMap, previewResize))));
+            }
             Output(new Bitmap(bitMap, new Size(outputResize, GetNewHeight(bitMap, outputResize))));
         }
         else
@@ -79,19 +84,19 @@ public class CharArt
                                 case "OutputPath":
                                     OUTPUT_FILE_PATH = Path.Combine(configDatas[1]);
                                     break;
-                                case "PerformanceResizeWidth":
+                                case "PreviewResizeWidth":
                                     if (int.TryParse(configDatas[1], out var performanceRewidth))
                                     {
-                                        performanceResize = performanceRewidth;
+                                        previewResize = performanceRewidth;
                                     }
                                     break;
                                 case "OutputResizeWidth":
-                                    if (int.TryParse(configDatas[1], out var outpurRewidth))
+                                    if (int.TryParse(configDatas[1], out var outputRewidth))
                                     {
-                                        outputResize = outpurRewidth;
+                                        outputResize = outputRewidth;
                                     }
                                     break;
-                                case "GrayScale":
+                                case "GrayScaleLevel":
                                     if (int.TryParse(configDatas[1], out var _grayScaleLevel))
                                     {
                                         grayScaleLevel = _grayScaleLevel;
@@ -101,6 +106,12 @@ public class CharArt
                                     if (double.TryParse(configDatas[1], out var _delayMilliseconds))
                                     {
                                         delayMilliseconds = _delayMilliseconds;
+                                    }
+                                    break;
+                                case "ShowPreview":
+                                    if (bool.TryParse(configDatas[1], out var _showPreview))
+                                    {
+                                        showPreview = _showPreview;
                                     }
                                     break;
                                 case "Char":
