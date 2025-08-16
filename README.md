@@ -43,3 +43,26 @@
 
 ![輸出結果](https://github.com/user-attachments/assets/47258f79-8790-439c-b72a-5bb229e30c4f)
 
+---
+
+額外功能說明:
+
+要用自訂圖片時把可以將Image資料夾中的圖換掉，要注意的是存在複數圖片的情況下只會讀第一張圖
+
+![圖片更換](https://github.com/user-attachments/assets/8904d063-bde5-46c5-be26-44a066617fcf)
+
+可變動的設定都會在Config.txt把設定值寫在等號後面存檔就能運作，不填值會使用預設數值，以下為各項設定內容:
+
+OutputPath: 指定輸出路徑，須包含輸出後的檔案及副檔名
+
+PerformanceResizeWidth: 預覽表演用數值，修改新圖片的寬度，由於圖片太大時會發生顯示上的排版問題，如果只想要成品這個值
+
+OutputResizeWidth: 輸出的圖片大小
+
+Char: 填滿顏色時的字符，例如A、B、1、!、@、#之類的
+
+GrayScale: 填0~255之間的值，這個值會作為亮度分界線來決定是否要填色
+
+DelayMilliseconds: 預覽表演用數值，單位為毫秒，單純讓預覽表演好看的功能，不填會使用預設數值
+
+![圖片更換](https://github.com/user-attachments/assets/aed631f8-5bda-4cbe-a98e-dce38a70fd69)
