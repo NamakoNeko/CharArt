@@ -23,7 +23,7 @@
 
 ![cmd啟動](https://github.com/user-attachments/assets/7401a6d5-192c-43d3-bee3-1e1989869f60)
 
-把終端機畫面最大化後輸入dotnet run並按Enter鍵執行，有出現圖案代表成功執行可以直接跳到最後一步
+輸入dotnet run並按Enter鍵執行，有出現圖案代表成功執行可以直接跳到最後一步
 
 ![dotnet run](https://github.com/user-attachments/assets/62d04473-c65c-4946-801e-c0c824d1052b)
 
@@ -55,14 +55,16 @@
 
 OutputPath: 指定輸出路徑，須包含輸出後的檔案及副檔名
 
-PerformanceResizeWidth: 預覽表演用數值，修改新圖片的寬度，由於圖片太大時會發生顯示上的排版問題，如果只想要成品這個值
+PreviewResizeWidth: 預覽表演用數值，修改預覽的寬度。這個值會影響灰階的取樣，數值太大預覽會被強制縮排
 
-OutputResizeWidth: 輸出的圖片大小
+OutputResizeWidth: 修改輸出的圖片寬度，這個值會影響灰階的取樣
 
-Char: 填滿顏色時的字符，例如A、B、1、!、@、#之類的
+Char: 填滿顏色時的字符，例如A、1、!、@、#...之類的
 
 GrayScale: 填0~255之間的值，這個值會作為亮度分界線來決定是否要填色
 
 DelayMilliseconds: 預覽表演用數值，單位為毫秒，單純讓預覽表演好看的功能，不填會使用預設數值
 
-![圖片更換](https://github.com/user-attachments/assets/aed631f8-5bda-4cbe-a98e-dce38a70fd69)
+ShowPreview: 預覽功能的開關，填入true或false，預設為開啟
+
+![圖片更換](https://github.com/user-attachments/assets/87caa8db-ebe7-4d0c-9f8b-a479eb632173)
